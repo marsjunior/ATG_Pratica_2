@@ -80,7 +80,7 @@ public class WeightedGraphTests {
 	
 	@Test
 	public void testBFS() {
-		
+		assertEquals("1 - 0 -\n2 - 1 1\n3 - 2 5\n4 - 2 5\n5 - 1 1\n", grafos.BFS(grafo, "1"));
 	}
 	
 	@Test
@@ -90,12 +90,12 @@ public class WeightedGraphTests {
 	
 	@Test
 	public void testConnected() {
-	
+		assertEquals(true, grafos.connected(grafo));
 	}
 	
 	@Test
 	public void testShortestPath() {
-		
+		assertEquals("1 2 5", grafos.shortestPath(grafo, "1", "5"));
 	}
 	
 	@Test
