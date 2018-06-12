@@ -60,21 +60,21 @@ public class WeightedGraphTests {
 	@Test
 	public void testGraphRepresentationAM() throws Exception {
 		String represetation = "  1 2 3 4 5"
-						 + "\n1 0 0.1 0 0 1"
-						 + "\n2 0.1 0 0 0 0.2"
-						 + "\n3 0 0 0 -9.5 5"
-						 + "\n4 0 0 -9.5 0 2.3"
-						 + "\n5 1 0.2 5 2.3 0";
+						 + "\n1 0 0,1 0 0 1"
+						 + "\n2 0,1 0 0 0 0,2"
+						 + "\n3 0 0 0 -9,5 5"
+						 + "\n4 0 0 -9,5 0 2,3"
+						 + "\n5 1 0,2 5 2,3 0";
 		assertEquals(represetation, grafos.graphRepresentation(grafo, "AM"));
 	}
 	
 	@Test
 	public void testGraphRepresentationAL() throws Exception {
-		String represetation = "\n1 - 2(0.1) 5(1)"
-						   +"\n2 - 1(0.1) 5(0.2)"
-						   +"\n3 - 4(-9.5) 5(5)"
-						   +"\n4 - 3(-9.5) 5(2.3)"
-						   +"\n5 - 1(1) 2(0.2) 3(5) 4(2.3)";
+		String represetation = "1 - 2(0,1) 5(1)"
+						   +"\n2 - 1(0,1) 5(0,2)"
+						   +"\n3 - 4(-9,5) 5(5)"
+						   +"\n4 - 3(-9,5) 5(2,3)"
+						   +"\n5 - 1(1) 2(0,2) 3(5) 4(2,3)";
 		assertEquals(represetation, grafos.graphRepresentation(grafo, "AL"));
 	}
 	

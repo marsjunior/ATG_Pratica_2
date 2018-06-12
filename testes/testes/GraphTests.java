@@ -16,6 +16,7 @@ import org.junit.Test;
 import edge.Edge;
 import ghandler.GraphHandler;
 import graph.Graph;
+import junit.framework.AssertionFailedError;
 
 public class GraphTests {
 
@@ -37,7 +38,6 @@ public class GraphTests {
 			edge = new Edge(origem, destino);
 			grafo.addEdge(edge);
 		}
-		
 	}
 	
 	/**
@@ -46,11 +46,24 @@ public class GraphTests {
 	 * @versao 1.0
 	 * 
 	 */
-
 	@Test
 	public void testGetVertexNumber() {
 		assertEquals(vertices, Controller.getVertexNumber(grafo));
+		assertEquals(0, Controller.getVertexNumber(null));
 	}
+	
+	@Test
+	public void testGetEdgeNull() {
+		String origem = String.valueOf(ArrayO[0]);
+		String destino = String.valueOf(ArrayD[0]);
+		edge = new Edge(origem, destino);
+		Edge edge2 = new Edge(origem, origem);
+		grafo.addEdge(null);
+		grafo.addEdge(edge);
+		grafo.addEdge(edge);
+		grafo.addEdge(edge2);
+	}
+	
 	/**
 	 * 
 	 * @author Marcos Junior
@@ -60,8 +73,10 @@ public class GraphTests {
 	@Test
 	public void testGetEdgeNumber() {
 		assertEquals(ArrayO.length, Controller.getEdgeNumber(grafo));
+		assertEquals(0, Controller.getEdgeNumber(null));
 		
 	}
+	
 	/**
 	 * 
 	 * @author Marcos Junior
@@ -71,7 +86,9 @@ public class GraphTests {
 	@Test
 	public void testGetMeanEdge() {
 		assertEquals(2.0, Controller.getMeanEdge(grafo), 0.001);
+		assertEquals(0, Controller.getMeanEdge(null), 0);
 	}
+	
 	/**
 	 * 
 	 * @author Marcos Junior
@@ -89,6 +106,7 @@ public class GraphTests {
 
 		assertEquals(represetation, Controller.graphRepresentation(grafo, "AM"));
 	}
+	
 	/**
 	 * 
 	 * @author Marcos Junior
@@ -104,6 +122,8 @@ public class GraphTests {
 							 + "\n5 - 1 2 3 4";
 
 		assertEquals(represetation, Controller.graphRepresentation(grafo, "AL"));
+		assertEquals("", Controller.graphRepresentation(grafo, null));
+		assertEquals("", Controller.graphRepresentation(null, "AL"));
 	}
 	
 	@Test
@@ -117,8 +137,10 @@ public class GraphTests {
 	}
 	
 	@Test
-	public void testConnected() {
+	public void testConnected() throws Exception {
 		assertEquals(true, Controller.connected(grafo));
+		Graph grafo2 = new Graph(5, false);
+		assertEquals(null, Controller.connected(grafo2));
 	}
 	
 	@Test
