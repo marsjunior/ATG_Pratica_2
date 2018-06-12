@@ -145,6 +145,9 @@ public class GraphTests {
 	
 	@Test
 	public void testShortestPath() {
+		assertEquals("", Controller.shortestPath(null, "1", "5"));
+		assertEquals("", Controller.shortestPath(grafo, null, "5"));
+		assertEquals("", Controller.shortestPath(grafo, "1", null));
 		assertEquals("1 2 5", Controller.shortestPath(grafo, "1", "5"));
 	}
 	

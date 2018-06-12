@@ -95,6 +95,8 @@ public class WeightedGraphTests {
 	
 	@Test
 	public void testShortestPath() {
+		assertEquals("", grafos.shortestPath(null, "1", "5"));
+		assertEquals("", grafos.shortestPath(grafo, null, "5"));
 		assertEquals("1 2 5", grafos.shortestPath(grafo, "1", "5"));
 	}
 	
