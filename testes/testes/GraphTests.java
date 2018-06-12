@@ -43,15 +43,33 @@ public class GraphTests {
 	/**
 	 * 
 	 * @author Marcos Junior
+	 * @throws Exception 
 	 * @versao 1.0
 	 * 
 	 */
+	
+	@Test
+	public void testGraph() throws Exception {
+		Graph test = new Graph(-4, false);
+		Graph test2 = new Graph(-5, true);
+	}
 	@Test
 	public void testGetVertexNumber() {
 		assertEquals(vertices, Controller.getVertexNumber(grafo));
 		assertEquals(0, Controller.getVertexNumber(null));
 	}
 	
+	@Test
+	public void testReadGraph() {
+		Controller.readGraph("input.txt");
+		Controller.readGraph(null);
+	}
+	
+	@Test
+	public void testReadWeightedGraph() {
+		Controller.readWeightedGraph("test-input.txt");
+		Controller.readWeightedGraph(null);
+	}
 	@Test
 	public void testGetEdgeNull() {
 		String origem = String.valueOf(ArrayO[0]);
@@ -105,6 +123,7 @@ public class GraphTests {
 							 + "\n5 1 1 1 1 0";
 
 		assertEquals(represetation, Controller.graphRepresentation(grafo, "AM"));
+		Controller.graphRepresentation(grafo, null);
 	}
 	
 	/**
@@ -133,7 +152,12 @@ public class GraphTests {
 	
 	@Test
 	public void testDFS() {
-		
+		Controller.DFS(grafo, "1");
+	}
+	
+	@Test
+	public void testMST() {
+		Controller.MST(grafo);
 	}
 	
 	@Test
